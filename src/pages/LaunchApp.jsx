@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Toast from "../components/Toast";
 
 function LaunchApp({ hasIdentity, setHasIdentity }) {
+  const navigate = useNavigate();
   const [showToast, setShowToast] = useState(false);
   const [groupName, setGroupName] = useState("");
   const [groupDescription, setGroupDescription] = useState("");
@@ -22,6 +24,8 @@ function LaunchApp({ hasIdentity, setHasIdentity }) {
     // Show a success message
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
+    // Navigate to the AllGroups page
+    navigate("/groups");
   };
 
   return (
